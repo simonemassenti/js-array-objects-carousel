@@ -5,7 +5,6 @@ const createImageString = (i) => `
     <h2 class="title">${images[i].title}</h2>
     <h4 class="text">${images[i].text}</h4>`;
 
-
 /*********************************/
 //Main Program
 
@@ -45,9 +44,9 @@ asideItemElem[index].classList.add("active");
 const nextElem = document.querySelector(".next");
 const prevElem = document.querySelector(".prev");
 
-nextElem.addEventListener("click", nextImage);
-
-prevElem.addEventListener("click", previousImage);
+//nextElem.addEventListener("click", nextImage);
+setInterval(nextImage, 3000);
+//prevElem.addEventListener("click", previousImage);
 
 
 /****************************/
@@ -56,7 +55,7 @@ function nextImage() {
     asideItemElem[index].classList.remove("active");
 
     index < images.length - 1 ? index++ : index = 0;
-    
+    console.log(index);
     asideItemElem[index].classList.add("active");
 
     imageString = createImageString(index);

@@ -78,10 +78,13 @@ img {
 .title {
     bottom: 50px;
     right: 10px;
+    background-color: rgba(0 ,0 , 0, 0.5);
+    padding: 0.1rem;
 }
 
 .text {
     bottom: 10px;
     right: 10px;
+    background-color: rgba(0 ,0 , 0, 0.5);
+    padding: 0.1rem;
 }
-
