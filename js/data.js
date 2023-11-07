@@ -40,14 +40,26 @@ let imageString = createImageString(index);
 displayerImageElem.innerHTML = imageString;
 const asideItemElem = document.querySelectorAll(".aside-item");
 asideItemElem[index].classList.add("active");
+const btnForwardElem = document.getElementById("forward");
+const btnBackElem = document.getElementById("back");
+const btnStopElem = document.getElementById("stop");
+let myTimer; 
+ console.log(myTimer);
+ console.log(btnForwardElem)
 
-const nextElem = document.querySelector(".next");
-const prevElem = document.querySelector(".prev");
+btnForwardElem.addEventListener("click", function () {  
+        clearInterval(myTimer);
+        myTimer = setInterval(nextImage, 3000);   
+});
 
-//nextElem.addEventListener("click", nextImage);
-setInterval(nextImage, 3000);
-//prevElem.addEventListener("click", previousImage);
+btnBackElem.addEventListener("click", function () {  
+    clearInterval(myTimer);
+    myTimer = setInterval(previousImage, 3000);   
+});
 
+btnStopElem.addEventListener("click", function () {  
+    clearInterval(myTimer); 
+})
 
 /****************************/
 //Functions
