@@ -24,20 +24,18 @@ img {
     width: 600px;
     height: 225px;
     overflow: hidden;
-    border: 1px solid black;
 }
 
 #aside {
     position: relative;
     width: 150px;
     height: 225px;
-    border: 1px solid black;
 }
 
 .aside-item {
     position: relative;
     height: calc(100% / 5);
-    border: 1px solid black;
+    border: 1px solid white;
     overflow: hidden;
 }
 

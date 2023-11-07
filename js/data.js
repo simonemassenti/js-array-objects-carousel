@@ -6,7 +6,6 @@ const createImageString = (i) => `
     <h4 class="text">${images[i].text}</h4>`;
 
 
-
 /*********************************/
 //Main Program
 
@@ -38,7 +37,6 @@ const images = [
 const displayerImageElem = document.getElementById("main-img");
 let index = 0;
 let imageString = createImageString(index);
-console.log(imageString);
 
 displayerImageElem.innerHTML = imageString;
 const asideItemElem = document.querySelectorAll(".aside-item");
@@ -47,27 +45,33 @@ asideItemElem[index].classList.add("active");
 const nextElem = document.querySelector(".next");
 const prevElem = document.querySelector(".prev");
 
-nextElem.addEventListener("click", function () {
+nextElem.addEventListener("click", nextImage);
+
+prevElem.addEventListener("click", previousImage);
+
+
+/****************************/
+//Functions
+function nextImage() {
     asideItemElem[index].classList.remove("active");
 
-    index < images.length-1 ? index++ : index = 0;
+    index < images.length - 1 ? index++ : index = 0;
+    
+    asideItemElem[index].classList.add("active");
+
+    imageString = createImageString(index);
+
+    displayerImageElem.innerHTML = imageString;
+}
+
+function previousImage() {
+    asideItemElem[index].classList.remove("active");
+
+    index > 0 ? index-- : index = images.length - 1;
 
     asideItemElem[index].classList.add("active");
 
     imageString = createImageString(index);
 
     displayerImageElem.innerHTML = imageString;
-})
-
-prevElem.addEventListener("click", function () {
-    asideItemElem[index].classList.remove("active");
-
-    index > 0 ? index-- : index = images.length-1;
-    console.log(index);
-
-    asideItemElem[index].classList.add("active");
-
-    imageString = createImageString(index);
-
-    displayerImageElem.innerHTML = imageString;
-})
+}
